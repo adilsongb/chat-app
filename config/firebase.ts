@@ -1,12 +1,18 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import Constants from 'expo-constants';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDef8m_v5BJ6lrz_bRa0WoRdewV97Z_ZpE',
-  authDomain: 'chatapp-a5120.firebaseapp.com',
-  projectId: 'chatapp-a5120',
-  storageBucket: 'chatapp-a5120.appspot.com',
-  messagingSenderId: '752071532523',
-  appId: '1:752071532523:web:a7efb1126fff66c07d43ae'
+  apiKey: Constants.manifest.extra.apiKey,
+  authDomain: Constants.manifest.extra.authDomain,
+  projectId: Constants.manifest.extra.projectId,
+  storageBucket: Constants.manifest.extra.storageBucket,
+  messagingSenderId: Constants.manifest.extra.messagingSenderId,
+  appId: Constants.manifest.extra.appId,
+  databaseURL: Constants.manifest.extra.databaseURL,
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+export const auth = getAuth();
+export const database = getFirestore();
